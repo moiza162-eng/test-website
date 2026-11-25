@@ -1,12 +1,12 @@
 const categories = ['All dishes', 'Starters', 'Soups', 'Mains', 'Noodles & Rice', 'Sides', 'Desserts', 'Drinks', 'Kids'];
 const dishes = [
-  {name:'Vegetable Spring Rolls', category:'Starters', price:5.50, diet:'Vegan', description:'Crispy rolls filled with seasonal vegetables.'},
-  {name:'Chicken Teriyaki', category:'Mains', price:12.95, description:'Grilled chicken in a sweet teriyaki sauce, served with steamed rice and broccoli. Finished with sesame seeds and spring onions.', allergens:'Sesame, wheat, soy.'},
-  {name:'Tofu Pad Thai', category:'Noodles & Rice', price:11.50, diet:'Vegan', description:'Stir-fried rice noodles with tofu, beansprouts and peanuts.', allergens:'Peanuts, soy.'},
-  {name:'Vegetable Gyoza', category:'Starters', price:6.25, diet:'Vegetarian', description:'Steamed dumplings filled with vegetables and shiitake.'},
-  {name:'Mango Sticky Rice', category:'Desserts', price:6.50, diet:'Vegan', description:'Sweet coconut sticky rice with ripe mango.'},
-  {name:'Thai Green Vegetable Curry', category:'Mains', price:11.95, diet:'Vegan', description:'Seasonal vegetables in a fragrant green curry.'},
-  {name:'Vegetable Fried Rice', category:'Noodles & Rice', price:8.95, diet:'Vegan', description:'Wok-fried rice with seasonal vegetables and spring onions.'}
+  {name:'Vegetable Spring Rolls', image:'spring-rolls', category:'Starters', price:5.50, diet:'Vegan', description:'Crispy rolls filled with seasonal vegetables.'},
+  {name:'Chicken Teriyaki', image:'chicken-teriyaki', category:'Mains', price:12.95, description:'Grilled chicken in a sweet teriyaki sauce, served with steamed rice and broccoli. Finished with sesame seeds and spring onions.', allergens:'Sesame, wheat, soy.'},
+  {name:'Tofu Pad Thai', image:'tofu-pad-thai', category:'Noodles & Rice', price:11.50, diet:'Vegan', description:'Stir-fried rice noodles with tofu, beansprouts and peanuts.', allergens:'Peanuts, soy.'},
+  {name:'Vegetable Gyoza', image:'vegetable-gyoza', category:'Starters', price:6.25, diet:'Vegetarian', description:'Steamed dumplings filled with vegetables and shiitake.'},
+  {name:'Mango Sticky Rice', image:'mango-sticky-rice', category:'Desserts', price:6.50, diet:'Vegan', description:'Sweet coconut sticky rice with ripe mango.'},
+  {name:'Thai Green Vegetable Curry', image:'green-curry', category:'Mains', price:11.95, diet:'Vegan', description:'Seasonal vegetables in a fragrant green curry.'},
+  {name:'Vegetable Fried Rice', image:'vegetable-fried-rice', category:'Noodles & Rice', price:8.95, diet:'Vegan', description:'Wok-fried rice with seasonal vegetables and spring onions.'}
 ];
 
 const currency = new Intl.NumberFormat('en-GB', {style:'currency', currency:'GBP'});
@@ -52,9 +52,10 @@ function render() {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'dish';
-    button.innerHTML = `<strong>${dish.name}</strong><span>${dish.description}</span>
+    button.innerHTML = `<img class="dish-image" src="menu/${dish.image}.webp" alt="" loading="lazy" width="400" height="300">
+      <span class="dish-copy"><strong>${dish.name}</strong><span>${dish.description}</span>
       <span class="price">${currency.format(dish.price)}</span>
-      ${dish.diet ? `<span class="tag">${dish.diet}</span>` : ''}`;
+      ${dish.diet ? `<span class="tag">${dish.diet}</span>` : ''}</span>`;
     button.addEventListener('click', () => showDish(dish));
     return button;
   }));
@@ -63,6 +64,7 @@ function render() {
 function showDish(dish) {
   document.querySelector('#dish-detail').innerHTML = `<p class="eyebrow">${dish.category}</p>
     <h2 id="dish-title">${dish.name}</h2><p class="price">${currency.format(dish.price)}</p>
+    <img class="dish-image" src="menu/${dish.image}.webp" alt="Illustrative photo of ${dish.name}" width="400" height="300">
     <p>${dish.description}</p>${dish.diet ? `<p class="tag">${dish.diet}</p>` : ''}
     <h3>Allergens</h3>${dish.allergens ? `<p>${dish.allergens}</p>` : ''}
     <p>Allergen details are illustrative. Ask staff about ingredients and cross-contact before ordering.</p>`;
