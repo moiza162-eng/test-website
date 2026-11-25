@@ -1,13 +1,51 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore the Lotus & Wok Asian Kitchen menu, from vegetable gyoza to wok-tossed noodles.">
+<title>Lotus & Wok | Asian Kitchen</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><b>Lotus <span>&amp;</span> <em>Wok</em></b><small>Asian Kitchen</small></a>
+<nav aria-label="Main navigation"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#visit">Visit</a></nav>
+<a class="button" href="#book">Book now</a>
+</div></header>
+<main id="main">
+<section class="hero" id="home"><div class="wrap">
+<p class="eyebrow">Asian Kitchen · London</p>
+<h1>Lotus <span>&amp;</span><br>Wok</h1>
+<p>Wok-tossed noodles, hearty mains and something sweet to finish.</p>
+<div class="actions"><a class="button" href="#menu">Explore the menu</a><a class="button outline" href="#delivery">Order for delivery</a></div>
+</div></section>
+<section class="wrap section" id="menu">
+<p class="eyebrow">Lotus &amp; Wok</p><h2>Explore the menu</h2>
+<form class="search" role="search" id="search-form"><label for="search">Find a dish</label><input type="search" id="search" placeholder="Search dishes or keywords…"></form>
+<div id="categories" class="categories" aria-label="Menu categories"></div>
+<div class="controls">
+<fieldset><legend>Dietary filters</legend><label><input type="checkbox" value="Vegan"> Vegan</label><label><input type="checkbox" value="Vegetarian"> Vegetarian</label><button id="clear" type="button" hidden>Clear filters</button></fieldset>
+<label class="sort">Sort by <select id="sort"><option value="default">Recommended</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label>
+</div>
+<p id="count" role="status"></p><div class="dishes" id="dishes"></div>
+</section>
+<section class="about" id="about"><div class="wrap section"><p class="eyebrow">About us</p><h2>Lotus &amp; Wok Asian Kitchen</h2><p>Start with crisp vegetable spring rolls or steamed gyoza, then settle in with a plate of teriyaki chicken or tofu pad thai. Save room for mango sticky rice.</p></div></section>
+<div class="wrap section details">
+<section id="book" class="panel"><h2>Book your table</h2><p>Choose a date, time and party size to preview your reservation.</p>
+<form id="booking"><div class="fields"><label>Date<input name="date" type="date" required></label><label>Time<input name="time" type="time" value="19:00" required></label><label>Number of guests<select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></div><button class="button">Preview booking</button><p id="booking-status" role="status">Demo booking form. Reservations are unavailable.</p></form>
+</section>
+<section id="delivery" class="panel"><h2>Order for delivery</h2><p>Prefer dining at home? Browse the menu to see what’s cooking.</p><a class="button" href="#menu">Browse dishes</a><p>Online ordering is unavailable in this demo.</p></section>
+</div>
+<section class="visit" id="visit"><div class="wrap section"><p class="eyebrow">Visit</p><h2>Find us</h2><div class="details">
+<div><h3>Location &amp; contact</h3><p>London · Full address to be confirmed</p><p>Sample phone: 020 1234 5678<br>Sample email: hello@lotusandwok.co.uk</p></div>
+<div><h3>Sample opening hours</h3><dl><dt>Mon–Thu</dt><dd>12–10 pm</dd><dt>Fri–Sat</dt><dd>12–11 pm</dd><dt>Sun</dt><dd>12–9 pm</dd></dl></div>
+<div><h3>Facilities</h3><p>Child-friendly seating, highchairs, kids’ menu and accessible toilet. Facilities are illustrative.</p><p>Sample offer · LOTUS10 for 10% off your next visit.</p></div>
+</div></div></section>
+</main>
+<footer><div class="wrap">Lotus &amp; Wok · Asian Kitchen</div></footer>
+<dialog id="dish-dialog" aria-labelledby="dish-title"><form method="dialog"><button class="close" aria-label="Close dish details">×</button></form><div id="dish-detail"></div></dialog>
+</body>
 </html>
-

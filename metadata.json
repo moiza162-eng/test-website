@@ -1,6 +1,0 @@
-{
-  "name": "Nova Threads",
-  "description": "An immersive e-commerce showcase featuring premium minimal apparel, accessories, and layout design for Nova Threads.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
